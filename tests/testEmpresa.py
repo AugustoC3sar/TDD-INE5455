@@ -121,6 +121,20 @@ class TestEmpresa(unittest.TestCase):
         # Result Verification
         self.assertEqual(error.exception.args[0], "Funcionário não encontrado.")
 
+    '''
+        Teste 11
+    '''
+    def teste_cria_projeto_sem_equipe(self):
+        # Implicit Fixture Setup
+        # Inline Fixture Setup
+        self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
+        funcionario = self.empresa.encontrarFuncionario('123.456.789-00')
+        # Exercise SUT
+        # A project must have name, cost, due date, responsible, and employees
+        self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario, [])
+        # Result Verification
+        self.assertEqual(1, len(self.empresa.projetos))
+
         
 if __name__ == '__main__':
     unittest.main()
