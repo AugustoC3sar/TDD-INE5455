@@ -15,4 +15,7 @@ class Empresa:
         return self.__funcionarios
     
     def cadastrarFuncionario(self, nome: str, cpf: str, cargo: str, salario: float):           
+        if not isinstance(nome, str):
+            raise ValueError
+        
         self.__funcionarios.append((nome, cpf, cargo, salario))
