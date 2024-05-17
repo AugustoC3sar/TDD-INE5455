@@ -38,6 +38,13 @@ class TestEmpresa(unittest.TestCase):
         # Exercise SUT
         with self.assertRaises(ValueError):
             self.empresa.cadastrarFuncionario(123, '12345678900', 'Gerente', 1000.0)
+
+    '''
+        Teste 4
+    '''
+    def test_cadastrar_funcionario_cpf_invalido(self):
+        with self.assertRaises(ValueError):
+            self.empresa.cadastrarFuncionario('Fulano', '12345678900', 'Gerente', 1000.0)
         
 if __name__ == '__main__':
     unittest.main()
