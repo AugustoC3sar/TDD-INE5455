@@ -84,6 +84,18 @@ class TestEmpresa(unittest.TestCase):
         self.empresa.cadastrarFuncionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
         # Result Verification
         self.assertEqual(2, len(self.empresa.funcionarios))
+
+    '''
+        Teste 8
+    '''
+    def test_cadastrar_funcionario_que_ja_esta_cadastrado(self):
+        # Implicit Fixture Setup
+        # Exercise SUT
+        self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
+        with self.assertRaises(ValueError) as error:
+            self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
+        # Result Verification
+        self.assertEqual(error.exception.args[0], "Funcionário já cadastrado.")
         
 if __name__ == '__main__':
     unittest.main()
