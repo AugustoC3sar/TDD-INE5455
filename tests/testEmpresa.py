@@ -109,6 +109,18 @@ class TestEmpresa(unittest.TestCase):
         funcionario = self.empresa.encontrarFuncionario('123.456.789-00')
         # Result Verification
         self.assertEqual(cpf, funcionario[1])
+
+    '''
+        Teste 10
+    '''
+    def teste_nao_encontra_funcionario_nao_registrado(self):
+        # Implicit Fixture Setup
+        # Exercise SUT
+        with self.assertRaises(ValueError) as error:
+            self.empresa.encontrarFuncionario('123.456.789-00')
+        # Result Verification
+        self.assertEqual(error.exception.args[0], "Funcionário não encontrado.")
+
         
 if __name__ == '__main__':
     unittest.main()
