@@ -7,7 +7,7 @@ from src.empresa import Empresa
 
 class TestEmpresa(unittest.TestCase):
     def setUp(self):
-        self.empresa = Empresa()
+        self.empresa = Empresa('Empresa 1')
 
     '''
         Teste 1
