@@ -21,6 +21,9 @@ class Empresa:
         if not isinstance(nome, str):
             raise ValueError("Nome inválido.")
         
+        if not isinstance(cargo, str):
+            raise ValueError("Cargo inválido.")
+        
         if not self.__validaCPF(cpf):
             raise ValueError("CPF inválido.")
         
