@@ -35,3 +35,8 @@ class Empresa:
                 raise ValueError("Funcionário já cadastrado.")
         
         self.__funcionarios.append((nome, cpf, cargo, salario))
+
+    def encontrarFuncionario(self, cpf: str):
+        for funcionario in self.funcionarios:
+            if funcionario[1] == cpf:
+                return funcionario
