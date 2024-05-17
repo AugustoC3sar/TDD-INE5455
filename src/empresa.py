@@ -5,6 +5,8 @@ class Empresa:
     def __init__(self, nome):
         self.__nome = nome
         self.__funcionarios = []
+        self.__projetos = []
+        self.__contadorIdProjeto = 1
 
     @property
     def nome(self):
@@ -13,6 +15,18 @@ class Empresa:
     @property
     def funcionarios(self):
         return self.__funcionarios
+    
+    @property
+    def projetos(self):
+        return self.__projetos
+    
+    @property
+    def contadorIdProjeto(self):
+        return self.__contadorIdProjeto
+    
+    @contadorIdProjeto.setter
+    def contadorIdProjeto(self, id):
+        self.__contadorIdProjeto = id
     
     def __validaCPF(self, cpf: str):
         return bool(re.match(r"^([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})$", cpf))
@@ -42,3 +56,7 @@ class Empresa:
                 return funcionario
             
         raise ValueError("Funcionário não encontrado.")
+    
+    def novoProjeto(self, titulo: str, custo: float, prazo: str, gerente, equipe: []):
+        self.__projetos.append((self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe))
+        self.contadorIdProjeto += 1
