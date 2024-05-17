@@ -53,7 +53,7 @@ class TestEmpresa(unittest.TestCase):
         self.assertEqual(e.exception.args[0], "CPF inválido.")
 
     '''
-        Teste 3
+        Teste 5
     '''
     def test_cadastrar_funcionario_cargo_invalido(self):
         # Implicit Fixture Setup
@@ -62,6 +62,17 @@ class TestEmpresa(unittest.TestCase):
             self.empresa.cadastrarFuncionario('Fulano', '12345678900', 123, 1000.0)
         # Result Verification
         self.assertEqual(error.exception.args[0], "Cargo inválido.")
+
+    '''
+        Teste 6
+    '''
+    def test_cadastrar_funcionario_salario_invalido(self):
+        # Implicit Fixture Setup
+        # Exercise SUT
+        with self.assertRaises(ValueError) as error:
+            self.empresa.cadastrarFuncionario('Fulano', '12345678900', 'Gerente', 1000)
+        # Result Verification
+        self.assertEqual(error.exception.args[0], "Salário inválido.")
         
 if __name__ == '__main__':
     unittest.main()
