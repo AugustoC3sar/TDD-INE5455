@@ -14,8 +14,14 @@ class Empresa:
     def funcionarios(self):
         return self.__funcionarios
     
+    def __validaCPF(self, cpf: str):
+        return bool(re.match(r"^([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})$", cpf))
+    
     def cadastrarFuncionario(self, nome: str, cpf: str, cargo: str, salario: float):           
         if not isinstance(nome, str):
+            raise ValueError
+        
+        if not self.__validaCPF(cpf):
             raise ValueError
         
         self.__funcionarios.append((nome, cpf, cargo, salario))
