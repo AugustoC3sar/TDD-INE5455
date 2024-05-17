@@ -30,4 +30,8 @@ class Empresa:
         if not self.__validaCPF(cpf):
             raise ValueError("CPF inválido.")
         
+        for funcionario in self.funcionarios:
+            if funcionario[1] == cpf:
+                raise ValueError("Funcionário já cadastrado.")
+        
         self.__funcionarios.append((nome, cpf, cargo, salario))
