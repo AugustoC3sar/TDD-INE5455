@@ -36,15 +36,21 @@ class TestEmpresa(unittest.TestCase):
     def test_cadastrar_funcionario_nome_invalido(self):
         # Implicit Fixture Setup
         # Exercise SUT
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError) as error:
             self.empresa.cadastrarFuncionario(123, '12345678900', 'Gerente', 1000.0)
+        # Result Verification
+        self.assertEqual(error.exception.args[0], "Nome inválido.")
 
     '''
         Teste 4
     '''
     def test_cadastrar_funcionario_cpf_invalido(self):
-        with self.assertRaises(ValueError):
+        # Implicit Fixture Setup
+        # Exercise SUT
+        with self.assertRaises(ValueError) as e:
             self.empresa.cadastrarFuncionario('Fulano', '12345678900', 'Gerente', 1000.0)
+        # Result Verification
+        self.assertEqual(e.exception.args[0], "CPF inválido.")
         
 if __name__ == '__main__':
     unittest.main()

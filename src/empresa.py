@@ -19,9 +19,9 @@ class Empresa:
     
     def cadastrarFuncionario(self, nome: str, cpf: str, cargo: str, salario: float):           
         if not isinstance(nome, str):
-            raise ValueError
+            raise ValueError("Nome inválido.")
         
         if not self.__validaCPF(cpf):
-            raise ValueError
+            raise ValueError("CPF inválido.")
         
         self.__funcionarios.append((nome, cpf, cargo, salario))
