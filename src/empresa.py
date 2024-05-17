@@ -40,3 +40,5 @@ class Empresa:
         for funcionario in self.funcionarios:
             if funcionario[1] == cpf:
                 return funcionario
+            
+        raise ValueError("Funcionário não encontrado.")
