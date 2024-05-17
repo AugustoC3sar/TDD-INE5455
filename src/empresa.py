@@ -24,6 +24,9 @@ class Empresa:
         if not isinstance(cargo, str):
             raise ValueError("Cargo inválido.")
         
+        if not isinstance(salario, float):
+            raise ValueError("Salário inválido.")
+        
         if not self.__validaCPF(cpf):
             raise ValueError("CPF inválido.")
         
