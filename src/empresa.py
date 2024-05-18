@@ -1,6 +1,8 @@
 import re
 from typing import List
 
+from src.funcionario import Funcionario
+
 class Empresa:
     def __init__(self, nome):
         self.__nome = nome
@@ -45,21 +47,21 @@ class Empresa:
             raise ValueError("CPF inválido.")
         
         for funcionario in self.funcionarios:
-            if funcionario[1] == cpf:
+            if funcionario.cpf == cpf:
                 raise ValueError("Funcionário já cadastrado.")
         
-        self.__funcionarios.append((nome, cpf, cargo, salario))
+        self.__funcionarios.append(Funcionario(nome, cpf, cargo, salario))
 
     def encontrarFuncionario(self, cpf: str):
         for funcionario in self.funcionarios:
-            if funcionario[1] == cpf:
+            if funcionario.cpf == cpf:
                 return funcionario
         return None
     
     def novoProjeto(self, titulo: str, custo: float, prazo: str, gerente, equipe):
         for funcionario in equipe:
-            if not self.encontrarFuncionario(funcionario[1]):
-                raise ValueError(f'Funcionário de cpf {funcionario[1]} não registrado.')
+            if not self.encontrarFuncionario(funcionario.cpf):
+                raise ValueError(f'Funcionário de cpf {funcionario.cpf} não registrado.')
         
         self.__projetos.append((self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe))
         self.contadorIdProjeto += 1
@@ -72,8 +74,8 @@ class Empresa:
         return None
     
     def adicionarAoProjeto(self, projetoId, funcionario):
-        if not self.encontrarFuncionario(funcionario[1]):
-            raise ValueError(f'Funcionário de cpf {funcionario[1]} não registrado.')
+        if not self.encontrarFuncionario(funcionario.cpf):
+            raise ValueError(f'Funcionário de cpf {funcionario.cpf} não registrado.')
         
         projeto = self.encontrarProjeto(projetoId)
         projeto[5].append(funcionario)

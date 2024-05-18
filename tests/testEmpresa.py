@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import unittest
 from src.empresa import Empresa
+from src.funcionario import Funcionario
 
 class TestEmpresa(unittest.TestCase):
     def setUp(self):
@@ -108,7 +109,7 @@ class TestEmpresa(unittest.TestCase):
         # Exercise SUT
         funcionario = self.empresa.encontrarFuncionario('123.456.789-00')
         # Result Verification
-        self.assertEqual(cpf, funcionario[1])
+        self.assertEqual(cpf, funcionario.cpf)
 
     '''
         Teste 10
@@ -158,12 +159,12 @@ class TestEmpresa(unittest.TestCase):
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
         funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
-        funcionario_nao_registrado = ('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
+        funcionario_nao_registrado = Funcionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
         # Exercise SUT
         with self.assertRaises(ValueError) as error:
             self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [funcionario_nao_registrado])
         # Result Verification
-        self.assertEqual(error.exception.args[0], f"Funcionário de cpf {funcionario_nao_registrado[1]} não registrado.")
+        self.assertEqual(error.exception.args[0], f"Funcionário de cpf {funcionario_nao_registrado.cpf} não registrado.")
 
     '''
         Teste 14
@@ -215,12 +216,12 @@ class TestEmpresa(unittest.TestCase):
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
         funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
         novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [])
-        funcionario_nao_registrado = ('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
+        funcionario_nao_registrado = Funcionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
         # Exercise SUT
         with self.assertRaises(ValueError) as error:
             self.empresa.adicionarAoProjeto(novo_projeto_id, funcionario_nao_registrado)
         # Result Verification
-        self.assertEqual(error.exception.args[0], f"Funcionário de cpf {funcionario_nao_registrado[1]} não registrado.")
+        self.assertEqual(error.exception.args[0], f"Funcionário de cpf {funcionario_nao_registrado.cpf} não registrado.")
 
         
 if __name__ == '__main__':
