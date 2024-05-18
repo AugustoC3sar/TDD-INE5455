@@ -33,7 +33,7 @@ class TestEmpresa(unittest.TestCase):
     '''
         Teste 3
     '''
-    def test_cadastrar_funcionario_nome_invalido(self):
+    def test_nao_cadastrar_funcionario_nome_invalido(self):
         # Implicit Fixture Setup
         # Exercise SUT
         with self.assertRaises(ValueError) as error:
@@ -44,7 +44,7 @@ class TestEmpresa(unittest.TestCase):
     '''
         Teste 4
     '''
-    def test_cadastrar_funcionario_cpf_invalido(self):
+    def test_nao_cadastrar_funcionario_cpf_invalido(self):
         # Implicit Fixture Setup
         # Exercise SUT
         with self.assertRaises(ValueError) as e:
@@ -55,7 +55,7 @@ class TestEmpresa(unittest.TestCase):
     '''
         Teste 5
     '''
-    def test_cadastrar_funcionario_cargo_invalido(self):
+    def test_nao_cadastrar_funcionario_cargo_invalido(self):
         # Implicit Fixture Setup
         # Exercise SUT
         with self.assertRaises(ValueError) as error:
@@ -66,7 +66,7 @@ class TestEmpresa(unittest.TestCase):
     '''
         Teste 6
     '''
-    def test_cadastrar_funcionario_salario_invalido(self):
+    def test_nao_cadastrar_funcionario_salario_invalido(self):
         # Implicit Fixture Setup
         # Exercise SUT
         with self.assertRaises(ValueError) as error:
@@ -88,7 +88,7 @@ class TestEmpresa(unittest.TestCase):
     '''
         Teste 8
     '''
-    def test_cadastrar_funcionario_que_ja_esta_cadastrado(self):
+    def test_nao_cadastrar_funcionario_que_ja_esta_cadastrado(self):
         # Implicit Fixture Setup
         # Exercise SUT
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
@@ -153,7 +153,7 @@ class TestEmpresa(unittest.TestCase):
     '''
         Teste 13
     '''
-    def teste_cria_projeto_com_equipe_com_funcionario_nao_registrado(self):
+    def teste_nao_cria_projeto_com_equipe_com_funcionario_nao_registrado(self):
         # Implicit Fixture Setup
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
@@ -179,7 +179,7 @@ class TestEmpresa(unittest.TestCase):
         self.assertEqual(novo_projeto_id, projeto[0])
 
     '''
-        Teste 15
+        Teste 16
     '''
     def teste_insere_funcionario_em_projeto(self):
         # Implicit Fixture Setup
@@ -196,9 +196,9 @@ class TestEmpresa(unittest.TestCase):
         self.assertEqual(len(projeto[5]), 1)
 
     '''
-        Teste 16
+        Teste 17
     '''
-    def teste_insere_funcionario_nao_registrado_em_projeto(self):
+    def teste_nao_insere_funcionario_nao_registrado_em_projeto(self):
         # Implicit Fixture Setup
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
