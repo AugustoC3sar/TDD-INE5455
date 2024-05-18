@@ -63,3 +63,10 @@ class Empresa:
         
         self.__projetos.append((self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe))
         self.contadorIdProjeto += 1
+        return self.contadorIdProjeto - 1
+    
+    def encontrarProjeto(self, projeto_id):
+        for projeto in self.projetos:
+            if projeto[0] == projeto_id:
+                return projeto
+        return None
