@@ -145,9 +145,10 @@ class TestEmpresa(unittest.TestCase):
         self.empresa.cadastrarFuncionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
         funcionario_registrado = self.empresa.encontrarFuncionario('009.876.543-21')
         # Exercise SUT
-        self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [funcionario_registrado])
+        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [funcionario_registrado])
         # Result Verification
         self.assertEqual(1, len(self.empresa.projetos))
+        self.assertTrue(novo_projeto_id)
 
     '''
         Teste 13
@@ -163,6 +164,20 @@ class TestEmpresa(unittest.TestCase):
             self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [funcionario_nao_registrado])
         # Result Verification
         self.assertEqual(error.exception.args[0], f"Funcionário de cpf {funcionario_nao_registrado[1]} não registrado.")
+
+    '''
+        Teste 14
+    '''
+    def teste_encontra_projeto(self):
+        # Inline Fixture Setup
+        self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
+        funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
+        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [])
+        # Exercise SUT
+        projeto = self.empresa.encontrarProjeto(novo_projeto_id)
+        # Result Verification
+        self.assertEqual(novo_projeto_id, projeto[0])
+
 
         
 if __name__ == '__main__':
