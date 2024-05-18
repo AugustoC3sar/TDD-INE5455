@@ -76,6 +76,4 @@ class Empresa:
             raise ValueError(f'Funcionário de cpf {funcionario[1]} não registrado.')
         
         projeto = self.encontrarProjeto(projetoId)
-
         projeto[5].append(funcionario)
-        print('aqui')
