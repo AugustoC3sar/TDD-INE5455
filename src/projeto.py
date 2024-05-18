@@ -16,10 +16,6 @@ class Projeto:
     @property
     def titulo(self):
         return self.__titulo
-
-    @property
-    def status(self):
-        return self.__status
     
     @property
     def custo(self):
