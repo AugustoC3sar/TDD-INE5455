@@ -2,6 +2,7 @@ import re
 from typing import List
 
 from src.funcionario import Funcionario
+from src.projeto import Projeto
 
 class Empresa:
     def __init__(self, nome):
@@ -63,13 +64,13 @@ class Empresa:
             if not self.encontrarFuncionario(funcionario.cpf):
                 raise ValueError(f'Funcionário de cpf {funcionario.cpf} não registrado.')
         
-        self.__projetos.append((self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe))
+        self.__projetos.append(Projeto(self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe))
         self.contadorIdProjeto += 1
         return self.contadorIdProjeto - 1
     
     def encontrarProjeto(self, projetoId):
         for projeto in self.projetos:
-            if projeto[0] == projetoId:
+            if projeto.id == projetoId:
                 return projeto
         return None
     
@@ -78,4 +79,4 @@ class Empresa:
             raise ValueError(f'Funcionário de cpf {funcionario.cpf} não registrado.')
         
         projeto = self.encontrarProjeto(projetoId)
-        projeto[5].append(funcionario)
+        projeto.equipe.append(funcionario)

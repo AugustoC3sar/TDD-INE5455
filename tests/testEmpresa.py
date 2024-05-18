@@ -177,7 +177,7 @@ class TestEmpresa(unittest.TestCase):
         # Exercise SUT
         projeto = self.empresa.encontrarProjeto(novo_projeto_id)
         # Result Verification
-        self.assertEqual(novo_projeto_id, projeto[0])
+        self.assertEqual(novo_projeto_id, projeto.id)
 
     '''
         Teste 14
@@ -205,7 +205,7 @@ class TestEmpresa(unittest.TestCase):
         self.empresa.adicionarAoProjeto(novo_projeto_id, funcionario_registrado)
         # Result Verification
         projeto = self.empresa.encontrarProjeto(novo_projeto_id)
-        self.assertEqual(len(projeto[5]), 1)
+        self.assertEqual(len(projeto.equipe), 1)
 
     '''
         Teste 17
