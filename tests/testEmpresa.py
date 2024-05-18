@@ -168,7 +168,7 @@ class TestEmpresa(unittest.TestCase):
     '''
         Teste 14
     '''
-    def teste_encontra_projeto(self):
+    def teste_encontra_projeto_registrado(self):
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
         funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
@@ -177,6 +177,17 @@ class TestEmpresa(unittest.TestCase):
         projeto = self.empresa.encontrarProjeto(novo_projeto_id)
         # Result Verification
         self.assertEqual(novo_projeto_id, projeto[0])
+
+    '''
+        Teste 14
+    '''
+    def teste_nao_encontra_projeto_nao_registrado(self):
+        # Inline Fixture Setup
+        novo_projeto_id = 1
+        # Exercise SUT
+        projeto = self.empresa.encontrarProjeto(novo_projeto_id)
+        # Result Verification
+        self.assertEqual(None, projeto)
 
     '''
         Teste 16
