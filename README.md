@@ -24,3 +24,5 @@
 - Teste 15: Não encontrar projeto que não foi registrado: Empresa.encontrarProjeto()
 - Teste 16: Insere funcionário em projeto: Empresa.adicionarAoProjeto()
 - Teste 17: Não insere funcionário que não foi registrado em projeto: Empresa.adicionarAoProjeto()
+
+- Teste 18: Criação de funcionário: Funcionario()
