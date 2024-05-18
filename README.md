@@ -26,3 +26,5 @@
 - Teste 17: Não insere funcionário que não foi registrado em projeto: Empresa.adicionarAoProjeto()
 
 - Teste 18: Criação de funcionário: Funcionario()
+
+- Teste 19: Criação de projeto: Projeto()
