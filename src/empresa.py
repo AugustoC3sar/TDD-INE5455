@@ -54,9 +54,12 @@ class Empresa:
         for funcionario in self.funcionarios:
             if funcionario[1] == cpf:
                 return funcionario
-            
-        raise ValueError("Funcionário não encontrado.")
+        return None
     
-    def novoProjeto(self, titulo: str, custo: float, prazo: str, gerente, equipe: []):
+    def novoProjeto(self, titulo: str, custo: float, prazo: str, gerente, equipe):
+        for funcionario in equipe:
+            if not self.encontrarFuncionario(funcionario[1]):
+                raise ValueError(f'Funcionário de cpf {funcionario[1]} não registrado.')
+        
         self.__projetos.append((self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe))
         self.contadorIdProjeto += 1
