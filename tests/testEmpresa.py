@@ -178,6 +178,22 @@ class TestEmpresa(unittest.TestCase):
         # Result Verification
         self.assertEqual(novo_projeto_id, projeto[0])
 
+    '''
+        Teste 15
+    '''
+    def teste_insere_funcionario_em_projeto(self):
+        # Implicit Fixture Setup
+        # Inline Fixture Setup
+        self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
+        funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
+        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [])
+        self.empresa.cadastrarFuncionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
+        funcionario_registrado = self.empresa.encontrarFuncionario('009.876.543-21')
+        # Exercise SUT
+        self.empresa.adicionarAoProjeto(novo_projeto_id, funcionario_registrado)
+        # Result Verification
+        projeto = self.empresa.encontrarProjeto(novo_projeto_id)
+        self.assertEqual(len(projeto[5]), 1)
 
         
 if __name__ == '__main__':
