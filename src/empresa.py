@@ -72,6 +72,9 @@ class Empresa:
         return None
     
     def adicionarAoProjeto(self, projetoId, funcionario):
+        if not self.encontrarFuncionario(funcionario[1]):
+            raise ValueError(f'Funcionário de cpf {funcionario[1]} não registrado.')
+        
         projeto = self.encontrarProjeto(projetoId)
 
         projeto[5].append(funcionario)
