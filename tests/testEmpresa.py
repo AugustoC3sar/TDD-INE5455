@@ -223,6 +223,3 @@ class TestEmpresa(unittest.TestCase):
         # Result Verification
         self.assertEqual(error.exception.args[0], f"Funcionário de cpf {funcionario_nao_registrado.cpf} não registrado.")
 
-        
-if __name__ == '__main__':
-    unittest.main()

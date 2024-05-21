@@ -1,6 +1,6 @@
 ## Verificar coverage
 
-`coverage run -m unittest tests.{arquivoDeTeste}`
+`coverage run -m unittest discover -s tests`
 `coverage html`
 
 ## Lista de Histórias
