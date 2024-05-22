@@ -79,4 +79,7 @@ class Empresa:
             raise ValueError(f'Funcionário de cpf {funcionario.cpf} não registrado.')
         
         projeto = self.encontrarProjeto(projetoId)
-        projeto.equipe.append(funcionario)
+        if not projeto:
+            raise ValueError(f'Nenhum projeto com id {projetoId}')
+        
+        projeto.adicionarAEquipe(funcionario)
