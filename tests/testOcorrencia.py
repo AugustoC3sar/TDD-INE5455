@@ -8,7 +8,7 @@ from src.funcionario import Funcionario
 import unittest
 
 
-class TestOcorrencia:
+class TestOcorrencia(unittest.TestCase):
     def setUp(self):
         self.responsavel = Funcionario("João", "145.689.023.45", "Analista de Redes", 3255.0)
     
@@ -26,4 +26,3 @@ class TestOcorrencia:
         self.assertEqual(ocorrencia.tipo, "tarefa")
         self.assertEqual(ocorrencia.prioridade, 3)
         self.assertEqual(ocorrencia.estado, 1)
-        
