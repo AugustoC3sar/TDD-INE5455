@@ -34,7 +34,7 @@ class Projeto:
     def equipe(self):
         return self.__equipe
 
-    def adicionar_a_equipe(self, funcionario: Funcionario):
+    def adicionarAEquipe(self, funcionario: Funcionario):
         if funcionario not in self.__equipe:
             self.__equipe.append(funcionario)
         
