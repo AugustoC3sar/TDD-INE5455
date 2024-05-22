@@ -33,3 +33,6 @@ class Ocorrencia:
     @property
     def estado(self):
         return self.__estado
+
+    def finalizarOcorrencia(self):
+        self.__estado = 0
