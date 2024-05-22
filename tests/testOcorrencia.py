@@ -26,3 +26,16 @@ class TestOcorrencia(unittest.TestCase):
         self.assertEqual(ocorrencia.tipo, "tarefa")
         self.assertEqual(ocorrencia.prioridade, 3)
         self.assertEqual(ocorrencia.estado, 1)
+
+    '''
+        Teste 23
+    '''
+    def test_finalizar_ocorrencia(self):
+        # Inline Setup
+        ocorrencia = Ocorrencia(1, "Troca dos switches", self.responsavel, "tarefa", 3)
+
+        # Exercise SUT
+        ocorrencia.finalizarOcorrencia()
+
+        # Result Verification
+        self.assertEqual(ocorrencia.estado, 0)
