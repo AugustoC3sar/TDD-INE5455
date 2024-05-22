@@ -198,7 +198,7 @@ class TestEmpresa(unittest.TestCase):
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
         funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
-        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [])
+        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30000, '2024/12/22', funcionario_gerente, [])
         self.empresa.cadastrarFuncionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
         funcionario_registrado = self.empresa.encontrarFuncionario('009.876.543-21')
         # Exercise SUT
@@ -215,7 +215,7 @@ class TestEmpresa(unittest.TestCase):
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
         funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
-        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [])
+        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30000, '2024/12/22', funcionario_gerente, [])
         funcionario_nao_registrado = Funcionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
         # Exercise SUT
         with self.assertRaises(ValueError) as error:
@@ -223,3 +223,15 @@ class TestEmpresa(unittest.TestCase):
         # Result Verification
         self.assertEqual(error.exception.args[0], f"Funcionário de cpf {funcionario_nao_registrado.cpf} não registrado.")
 
+    '''
+        Teste 21
+    '''
+    def test_nao_insere_funcionario_em_projeto_inexistente(self):
+        # Implicit Setup
+        # Inline Setup
+        self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
+        funcionario = self.empresa.encontrarFuncionario('123.456.789-00')
+
+        # Exercise SUT
+        with self.assertRaises(ValueError):
+            self.empresa.adicionarAoProjeto(9, funcionario)
