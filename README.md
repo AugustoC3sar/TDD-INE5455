@@ -24,7 +24,12 @@
 - Teste 15: Não encontrar projeto que não foi registrado: Empresa.encontrarProjeto()
 - Teste 16: Insere funcionário em projeto: Empresa.adicionarAoProjeto()
 - Teste 17: Não insere funcionário que não foi registrado em projeto: Empresa.adicionarAoProjeto()
+- Teste 21: Não insere funcionário registrado em projeto inexistente: Empresa.adicionarAoProjeto()
 
 - Teste 18: Criação de funcionário: Funcionario()
 
 - Teste 19: Criação de projeto: Projeto()
+- Teste 20: Adicionar funcionario a equipe: Projeto.adicionarAEquipe()
+
+- Teste 22: Criação de Ocorrencia: Ocorrencia()
+- Teste 23: Finalizar ocorrencia: Ocorrencia.finalizarOcorrencia()
