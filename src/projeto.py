@@ -1,13 +1,14 @@
 from src.funcionario import Funcionario
 
 class Projeto:
-    def __init__(self, id: int, titulo: str, custo: float, prazo: str, gerente: Funcionario, equipe=[]):
+    def __init__(self, id: int, titulo: str, custo: float, prazo: str, gerente: Funcionario, equipe:list = []):
         self.__id = id
         self.__titulo = titulo
         self.__custo = custo
         self.__prazo = prazo
         self.__gerente = gerente
         self.__equipe = equipe
+        self.__equipe.append(self.__gerente)
 
     @property
     def id(self):
@@ -32,3 +33,8 @@ class Projeto:
     @property
     def equipe(self):
         return self.__equipe
+
+    def adicionar_a_equipe(self, funcionario: Funcionario):
+        if funcionario not in self.__equipe:
+            self.__equipe.append(funcionario)
+        
