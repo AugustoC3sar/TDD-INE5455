@@ -25,3 +25,16 @@ class TestProjeto(unittest.TestCase):
         self.assertEqual(projeto.prazo, "2025-05-15")
         self.assertEqual(projeto.gerente, self.gerente)
         self.assertEqual(projeto.equipe, [])
+
+    '''
+        Teste 20
+    '''
+    def test_adicionar_funcionario_a_equipe(self):
+        # Inline Setup
+        funcionario = Funcionario("Jonas", "345.678.901-10", "Analista", 2500)
+
+        # Exercise SUT
+        self.projeto.adicionar_a_equipe(funcionario)
+
+        # Result Verification
+        self.assertListEqual(self.projeto.equipe, [self.gerente, funcionario])
