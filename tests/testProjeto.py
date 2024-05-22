@@ -34,7 +34,7 @@ class TestProjeto(unittest.TestCase):
         funcionario = Funcionario("Jonas", "345.678.901-10", "Analista", 2500)
 
         # Exercise SUT
-        self.projeto.adicionar_a_equipe(funcionario)
+        self.projeto.adicionarAEquipe(funcionario)
 
         # Result Verification
         self.assertListEqual(self.projeto.equipe, [self.gerente, funcionario])

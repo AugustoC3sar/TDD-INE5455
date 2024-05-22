@@ -205,7 +205,7 @@ class TestEmpresa(unittest.TestCase):
         self.empresa.adicionarAoProjeto(novo_projeto_id, funcionario_registrado)
         # Result Verification
         projeto = self.empresa.encontrarProjeto(novo_projeto_id)
-        self.assertEqual(len(projeto.equipe), 1)
+        self.assertEqual(len(projeto.equipe), 2)
 
     '''
         Teste 17
