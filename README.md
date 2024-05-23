@@ -3,8 +3,6 @@
 `coverage run -m unittest discover -s tests`
 `coverage html`
 
-## Lista de Histórias
-
 ## Lista de Testes
 
 - Teste 1: Criação de empresa: Empresa()
