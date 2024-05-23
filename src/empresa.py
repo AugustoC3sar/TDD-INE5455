@@ -34,7 +34,7 @@ class Empresa:
     def __validaCPF(self, cpf: str):
         return bool(re.match(r"^([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})$", cpf))
     
-    def cadastrarFuncionario(self, nome: str, cpf: str, cargo: str, salario: float):           
+    def cadastrarFuncionario(self, nome: str, cpf: str, cargo: str, salario: float) -> Funcionario:           
         if not isinstance(nome, str):
             raise ValueError("Nome inválido.")
         
@@ -51,24 +51,28 @@ class Empresa:
             if funcionario.cpf == cpf:
                 raise ValueError("Funcionário já cadastrado.")
         
-        self.__funcionarios.append(Funcionario(nome, cpf, cargo, salario))
+        funcionario = Funcionario(nome, cpf, cargo, salario)
+        self.__funcionarios.append(funcionario)
 
-    def encontrarFuncionario(self, cpf: str):
+        return funcionario
+
+    def encontrarFuncionario(self, cpf: str) -> Funcionario | None:
         for funcionario in self.funcionarios:
             if funcionario.cpf == cpf:
                 return funcionario
         return None
     
-    def novoProjeto(self, titulo: str, custo: float, prazo: str, gerente, equipe):
+    def novoProjeto(self, titulo: str, custo: float, prazo: str, gerente, equipe) -> Projeto:
         for funcionario in equipe:
             if not self.encontrarFuncionario(funcionario.cpf):
                 raise ValueError(f'Funcionário de cpf {funcionario.cpf} não registrado.')
         
-        self.__projetos.append(Projeto(self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe))
+        projeto = Projeto(self.contadorIdProjeto, titulo, custo, prazo, gerente, equipe)
+        self.__projetos.append(projeto)
         self.contadorIdProjeto += 1
-        return self.contadorIdProjeto - 1
+        return projeto
     
-    def encontrarProjeto(self, projetoId):
+    def encontrarProjeto(self, projetoId) -> Projeto | None:
         for projeto in self.projetos:
             if projeto.id == projetoId:
                 return projeto
