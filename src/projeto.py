@@ -1,7 +1,7 @@
 from src.funcionario import Funcionario
 
 class Projeto:
-    def __init__(self, id: int, titulo: str, custo: float, prazo: str, gerente: Funcionario, equipe:list = []):
+    def __init__(self, id: int, titulo: str, custo: float, prazo: str, gerente: Funcionario, equipe:list):
         self.__id = id
         self.__titulo = titulo
         self.__custo = custo
