@@ -237,23 +237,4 @@ class TestEmpresa(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.empresa.adicionarAoProjeto(9, funcionario)
 
-    '''
-        Teste 24
-    '''
-    def test_incluir_ocorrencia_em_projeto(self):
-        # Implicit Setup
-        # Inline Setup
-        funcionario = self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
-        projeto = self.empresa.novoProjeto("Projeto 1", funcionario, )
-
-        # Exercise SUT
-        ocorrencia = self.empresa.criarOcorrencia(projeto, "Elaboração do Termo de Abertura", funcionario, "tarefa", 3)
-    
-        # Result Verification
-        self.assertEqual(ocorrencia.id, 1)
-        self.assertEqual(ocorrencia.resumo, "Elaboração do Termo de Abertura")
-        self.assertEqual(ocorrencia.responsavel, funcionario)
-        self.assertEqual(ocorrencia.tipo, "tarefa")
-        self.assertEqual(ocorrencia.prioridade, 3)
-        self.assertEqual(ocorrencia.estado, 1)
     

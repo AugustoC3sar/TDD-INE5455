@@ -5,6 +5,7 @@
 
 ## Lista de Testes
 
+### Empresa
 - Teste 1: Criação de empresa: Empresa()
 - Teste 2: Cadastrar funcionário: Empresa.cadastrarFuncionario()
 - Teste 3: Não cadastrar funcionário com nome inválido: Empresa.cadastrarFuncionario()
@@ -24,10 +25,14 @@
 - Teste 17: Não insere funcionário que não foi registrado em projeto: Empresa.adicionarAoProjeto()
 - Teste 21: Não insere funcionário registrado em projeto inexistente: Empresa.adicionarAoProjeto()
 
+### Funcionário
 - Teste 18: Criação de funcionário: Funcionario()
 
+### Projeto
 - Teste 19: Criação de projeto: Projeto()
 - Teste 20: Adicionar funcionario a equipe: Projeto.adicionarAEquipe()
+- Teste 24: Incluir ocorrência em projeto: projeto.criarOcorrencia()
 
+### Ocorrencia
 - Teste 22: Criação de Ocorrencia: Ocorrencia()
 - Teste 23: Finalizar ocorrencia: Ocorrencia.finalizarOcorrencia()

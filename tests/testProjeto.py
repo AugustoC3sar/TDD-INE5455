@@ -5,6 +5,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import unittest
 from src.projeto import Projeto
 from src.funcionario import Funcionario
+from src.ocorrencia import Ocorrencia
 
 
 class TestProjeto(unittest.TestCase):
@@ -38,3 +39,17 @@ class TestProjeto(unittest.TestCase):
 
         # Result Verification
         self.assertListEqual(self.projeto.equipe, [self.gerente, funcionario])
+    
+    '''
+        Teste 24
+    '''
+    def test_criar_ocorrencia(self):
+        # Inline Setup
+        funcionario = Funcionario("Jonas", "345.678.901-10", "Analista", 2500)
+
+        # Exercise SUT
+        ocorrencia = self.projeto.criarOcorrencia("Revisão dos Requisitos Funcionais", funcionario, "tarefa", 3)
+
+        # Result verification
+        self.assertListEqual(self.projeto.ocorrencias, [ocorrencia])
+    
