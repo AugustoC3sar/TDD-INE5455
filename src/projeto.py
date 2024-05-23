@@ -1,4 +1,5 @@
 from src.funcionario import Funcionario
+from src.ocorrencia import Ocorrencia
 
 class Projeto:
     def __init__(self, id: int, titulo: str, custo: float, prazo: str, gerente: Funcionario, equipe:list):
@@ -10,6 +11,8 @@ class Projeto:
         self.__equipe = equipe
         if gerente not in equipe:
             self.__equipe.append(self.__gerente)
+        self.__ocorrencias = []
+        self.__ocorrenciaId = 1
 
     @property
     def id(self):
@@ -35,7 +38,16 @@ class Projeto:
     def equipe(self):
         return self.__equipe
 
+    @property
+    def ocorrencias(self):
+        return self.__ocorrencias
+
     def adicionarAEquipe(self, funcionario: Funcionario):
         if funcionario not in self.__equipe:
             self.__equipe.append(funcionario)
-        
+    
+    def criarOcorrencia(self, resumo: str, responsavel: Funcionario, tipo: str, prioridade: int):
+        ocorrencia = Ocorrencia(self.__ocorrenciaId, resumo, responsavel, tipo, prioridade)
+        self.__ocorrencias.append(ocorrencia)
+        self.__ocorrenciaId += 1
+        return ocorrencia

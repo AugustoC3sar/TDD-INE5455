@@ -52,4 +52,4 @@ class TestProjeto(unittest.TestCase):
 
         # Result verification
         self.assertListEqual(self.projeto.ocorrencias, [ocorrencia])
-    
+
