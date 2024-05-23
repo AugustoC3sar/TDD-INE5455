@@ -24,7 +24,7 @@ class TestProjeto(unittest.TestCase):
         self.assertEqual(projeto.custo, 750000)
         self.assertEqual(projeto.prazo, "2025-05-15")
         self.assertEqual(projeto.gerente, self.gerente)
-        self.assertEqual(projeto.equipe, [])
+        self.assertListEqual(projeto.equipe, [self.gerente])
 
     '''
         Teste 20

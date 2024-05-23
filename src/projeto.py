@@ -8,7 +8,8 @@ class Projeto:
         self.__prazo = prazo
         self.__gerente = gerente
         self.__equipe = equipe
-        self.__equipe.append(self.__gerente)
+        if gerente not in equipe:
+            self.__equipe.append(self.__gerente)
 
     @property
     def id(self):
