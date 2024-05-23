@@ -11,31 +11,43 @@ import unittest
 class TestOcorrencia(unittest.TestCase):
     def setUp(self):
         self.responsavel = Funcionario("João", "145.689.023.45", "Analista de Redes", 3255.0)
+        self.ocorrencia = Ocorrencia(1, "Troca dos switches", self.responsavel, "tarefa", 3)
     
     '''
         Teste 22
     '''
     def test_criar_ocorrencia(self):
         # Exercise SUT
-        ocorrencia = Ocorrencia(1, "Troca dos switches", self.responsavel, "tarefa", 3)
+        ocorrencia = Ocorrencia(2, "Configuração do Firewall", self.responsavel, "tarefa", 2)
 
         # Result Verification
-        self.assertEqual(ocorrencia.id, 1)
-        self.assertEqual(ocorrencia.resumo, "Troca dos switches")
+        self.assertEqual(ocorrencia.id, 2)
+        self.assertEqual(ocorrencia.resumo, "Configuração do Firewall")
         self.assertEqual(ocorrencia.responsavel, self.responsavel)
         self.assertEqual(ocorrencia.tipo, "tarefa")
-        self.assertEqual(ocorrencia.prioridade, 3)
+        self.assertEqual(ocorrencia.prioridade, 2)
         self.assertEqual(ocorrencia.estado, 1)
 
     '''
         Teste 23
     '''
     def test_finalizar_ocorrencia(self):
-        # Inline Setup
-        ocorrencia = Ocorrencia(1, "Troca dos switches", self.responsavel, "tarefa", 3)
+        # Implicit setup
 
         # Exercise SUT
-        ocorrencia.finalizarOcorrencia()
+        self.ocorrencia.finalizarOcorrencia()
 
         # Result Verification
-        self.assertEqual(ocorrencia.estado, 0)
+        self.assertEqual(self.ocorrencia.estado, 0)
+    
+    '''
+        Teste 25
+    '''
+    def test_modificar_prioridade(self):
+        # Implicit Setup
+
+        # Exercise SUT
+        self.ocorrencia.modificarPrioridade(2)
+
+        # Result Verification
+        self.assertEqual(self.ocorrencia.prioridade, 2)

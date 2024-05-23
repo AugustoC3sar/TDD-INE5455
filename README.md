@@ -36,3 +36,4 @@
 ### Ocorrencia
 - Teste 22: Criação de Ocorrencia: Ocorrencia()
 - Teste 23: Finalizar ocorrencia: Ocorrencia.finalizarOcorrencia()
+- Teste 25: Modificar Prioridade da ocorrencia: Ocorrencia.modificarPrioridade()
