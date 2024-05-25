@@ -34,3 +34,5 @@ class Funcionario:
         for ocorrencia in self.__ocorrencias:
             if (ocorrencia.id == id_ocorrencia):
                 self.__ocorrencias.remove(ocorrencia)
+                break
+
