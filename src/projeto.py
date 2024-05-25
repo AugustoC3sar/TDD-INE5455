@@ -61,3 +61,11 @@ class Projeto:
             if (ocorrencia.id == id_ocorrecia):
                 return ocorrencia
         return None
+
+    def finalizarOcorrencia(self, id_ocorrencia):
+        for ocorrencia in self.__ocorrencias:
+            if (ocorrencia.id == id_ocorrencia):
+                ocorrencia.finalizar()
+                ocorrencia.responsavel.removerOcorrencia(ocorrencia.id)
+                self.__ocorrencias.remove(ocorrencia)
+                break
