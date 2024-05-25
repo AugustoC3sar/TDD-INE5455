@@ -1,5 +1,5 @@
 from src.funcionario import Funcionario
-
+from src.prioridadeOcorrencia import PrioridadeOcorrencia
 
 class Ocorrencia:
     def __init__(self, id: int, resumo: str, responsavel: Funcionario, tipo: str, prioridade: int):
@@ -7,7 +7,7 @@ class Ocorrencia:
         self.__resumo = resumo
         self.__responsavel = responsavel
         self.__tipo = tipo
-        self.__prioridade = prioridade
+        self.__prioridade = PrioridadeOcorrencia(prioridade)
         self.__estado = 1
     
     @property
@@ -38,4 +38,4 @@ class Ocorrencia:
         self.__estado = 0
     
     def modificarPrioridade(self, prioridade):
-        self.__prioridade = prioridade
+        self.__prioridade = PrioridadeOcorrencia(prioridade)
