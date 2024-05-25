@@ -4,6 +4,7 @@ class Funcionario:
         self.__cpf = cpf
         self.__cargo = cargo
         self.__salario = salario
+        self.__ocorrencias = []
 
     @property
     def nome(self):
@@ -20,3 +21,11 @@ class Funcionario:
     @property
     def salario(self):
         return self.__salario
+
+    @property
+    def ocorrencias(self):
+        return self.__ocorrencias
+    
+    def adicionarOcorrencia(self, ocorrencia):
+        if ocorrencia not in self.__ocorrencias:
+            self.__ocorrencias.append(ocorrencia)
