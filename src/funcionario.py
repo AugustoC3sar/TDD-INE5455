@@ -29,3 +29,8 @@ class Funcionario:
     def adicionarOcorrencia(self, ocorrencia):
         if ocorrencia not in self.__ocorrencias:
             self.__ocorrencias.append(ocorrencia)
+
+    def removerOcorrencia(self, id_ocorrencia):
+        for ocorrencia in self.__ocorrencias:
+            if (ocorrencia.id == id_ocorrencia):
+                self.__ocorrencias.remove(ocorrencia)
