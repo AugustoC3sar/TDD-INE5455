@@ -28,6 +28,7 @@
 ### Funcionário
 - Teste 18: Criação de funcionário: Funcionario()
 - Teste 28: Adicionar ocorrência a lista de ocorrências do funcionario: Funcionario.adicionarOcorrencia()
+- Teste 29: Remover ocorrência da lista de ocorrências do funcionario: Funcionario.removerOcorrencia()
 
 ### Projeto
 - Teste 19: Criação de projeto: Projeto()

@@ -36,3 +36,18 @@ class TestFuncionario(unittest.TestCase):
 
         # Result Verification
         self.assertListEqual(self.funcionario.ocorrencias, [ocorrencia])
+    
+    '''
+        Teste 29
+    '''
+    def test_remover_ocorrencia(self):
+        # Implicit Setup
+        # Inline Setup
+        ocorrencia = Ocorrencia(1, "Ocorrencia Teste", self.funcionario, "tarefa", 1)
+        self.funcionario.adicionarOcorrencia(ocorrencia)
+
+        # Exercise SUT
+        self.funcionario.removerOcorrencia(ocorrencia.id)
+
+        # Result Verification
+        self.assertListEqual(self.funcionario.ocorrencias, [])
