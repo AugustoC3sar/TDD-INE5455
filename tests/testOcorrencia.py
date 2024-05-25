@@ -35,7 +35,7 @@ class TestOcorrencia(unittest.TestCase):
         # Implicit setup
 
         # Exercise SUT
-        self.ocorrencia.finalizarOcorrencia()
+        self.ocorrencia.finalizar()
 
         # Result Verification
         self.assertEqual(self.ocorrencia.estado, 0)

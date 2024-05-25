@@ -34,7 +34,7 @@ class Ocorrencia:
     def estado(self):
         return self.__estado
 
-    def finalizarOcorrencia(self):
+    def finalizar(self):
         self.__estado = 0
     
     def modificarPrioridade(self, prioridade: int):
