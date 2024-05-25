@@ -36,6 +36,7 @@
 - Teste 24: Incluir ocorrência em projeto: projeto.criarOcorrencia()
 - Teste 30: Criar ocorrencia com funcionário que não pertence a equipe: projeto.criarOcorrencia()
 - Teste 31: Encontrar ocorrencia no projeto: projeto.encontrarOcorrencia()
+- Teste 32: Finalizar ocorrencia do projeto: projeto.finalizarOcorrencia()
 
 ### Ocorrencia
 - Teste 22: Criação de Ocorrencia: Ocorrencia()

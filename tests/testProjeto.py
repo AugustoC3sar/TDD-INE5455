@@ -81,3 +81,18 @@ class TestProjeto(unittest.TestCase):
         # Result Verification
         self.assertEqual(ocorrencia, ocorrencia_ret)
     
+    '''
+        Teste 32
+    '''
+    def test_finalizar_ocorrencia(self):
+        # Inline Setup
+        funcionario = Funcionario("Jonas", "345.678.901-10", "Analista", 2500)
+        self.projeto.adicionarAEquipe(funcionario)
+        ocorrencia = self.projeto.criarOcorrencia("Revisão dos Requisitos Funcionais", funcionario, "tarefa", 3)
+
+        # Exercise SUT
+        self.projeto.finalizarOcorrencia(ocorrencia.id)
+
+        # Result Verification
+        self.assertListEqual(self.projeto.ocorrencias, [])
+        self.assertListEqual(ocorrencia.responsavel.ocorrencias, [])
