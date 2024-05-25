@@ -65,3 +65,19 @@ class TestProjeto(unittest.TestCase):
         # Exercise SUT + Result Verification
         with self.assertRaises(ValueError):
             self.projeto.criarOcorrencia("Revisão dos Requisitos Funcionais", funcionario, "tarefa", 3)
+    
+    '''
+        Teste 31
+    '''
+    def test_encontrar_ocorrencia(self):
+        # Inline Setup
+        funcionario = Funcionario("Jonas", "345.678.901-10", "Analista", 2500)
+        self.projeto.adicionarAEquipe(funcionario)
+        ocorrencia = self.projeto.criarOcorrencia("Revisão dos Requisitos Funcionais", funcionario, "tarefa", 3)
+
+        # Exercise SUT
+        ocorrencia_ret = self.projeto.encontrarOcorrencia(ocorrencia.id)
+
+        # Result Verification
+        self.assertEqual(ocorrencia, ocorrencia_ret)
+    
