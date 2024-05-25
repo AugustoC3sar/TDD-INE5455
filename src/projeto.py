@@ -47,7 +47,11 @@ class Projeto:
             self.__equipe.append(funcionario)
     
     def criarOcorrencia(self, resumo: str, responsavel: Funcionario, tipo: str, prioridade: int):
+        if responsavel not in self.__equipe:
+            raise ValueError("Responsável da ocorrência não pertence ao projeto")
+    
         ocorrencia = Ocorrencia(self.__ocorrenciaId, resumo, responsavel, tipo, prioridade)
+        responsavel.adicionarOcorrencia(ocorrencia)
         self.__ocorrencias.append(ocorrencia)
         self.__ocorrenciaId += 1
         return ocorrencia
