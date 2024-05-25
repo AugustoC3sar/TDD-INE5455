@@ -34,6 +34,7 @@
 - Teste 19: Criação de projeto: Projeto()
 - Teste 20: Adicionar funcionario a equipe: Projeto.adicionarAEquipe()
 - Teste 24: Incluir ocorrência em projeto: projeto.criarOcorrencia()
+- Teste 30: Criar ocorrencia com funcionário que não pertence a equipe: projeto.criarOcorrencia()
 
 ### Ocorrencia
 - Teste 22: Criação de Ocorrencia: Ocorrencia()
