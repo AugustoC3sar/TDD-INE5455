@@ -51,3 +51,14 @@ class TestOcorrencia(unittest.TestCase):
 
         # Result Verification
         self.assertEqual(self.ocorrencia.prioridade, 2)
+
+    '''
+        Teste 26
+    '''
+    def test_modificar_prioridade_invalida(self):
+        # Implicit Setup
+
+        # Exercise SUT
+        with self.assertRaises(ValueError):
+            self.ocorrencia.modificarPrioridade(4)
+    
