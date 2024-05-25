@@ -55,3 +55,9 @@ class Projeto:
         self.__ocorrencias.append(ocorrencia)
         self.__ocorrenciaId += 1
         return ocorrencia
+
+    def encontrarOcorrencia(self, id_ocorrecia):
+        for ocorrencia in self.__ocorrencias:
+            if (ocorrencia.id == id_ocorrecia):
+                return ocorrencia
+        return None
