@@ -38,3 +38,4 @@
 - Teste 23: Finalizar ocorrencia: Ocorrencia.finalizarOcorrencia()
 - Teste 25: Modificar Prioridade da ocorrencia: Ocorrencia.modificarPrioridade()
 - Teste 26: Não modifica prioridade da ocorrência para valor inválido: Ocorrencia.modificarPrioridade()
+- Teste 27: Alterar o responsável da ocorrência: Ocorrencia.alterarResponsavel()

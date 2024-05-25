@@ -61,4 +61,17 @@ class TestOcorrencia(unittest.TestCase):
         # Exercise SUT
         with self.assertRaises(ValueError):
             self.ocorrencia.modificarPrioridade(4)
-    
+
+    '''
+        Teste 27
+    '''
+    def test_alterar_responsavel(self):
+        # Implicit Setup
+        # Inline Setup
+        funcionario = Funcionario("José", "902.433.785-10", "Suporte Técnico", 2190.5)
+
+        # Exercise SUT
+        self.ocorrencia.alterarResponsavel(funcionario)
+
+        # Result verification
+        self.assertEqual(self.ocorrencia.responsavel, funcionario)
