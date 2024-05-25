@@ -37,5 +37,8 @@ class Ocorrencia:
     def finalizarOcorrencia(self):
         self.__estado = 0
     
-    def modificarPrioridade(self, prioridade):
+    def modificarPrioridade(self, prioridade: int):
         self.__prioridade = PrioridadeOcorrencia(prioridade)
+
+    def alterarResponsavel(self, responsavel: Funcionario):
+        self.__responsavel = responsavel
