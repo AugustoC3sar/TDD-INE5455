@@ -80,9 +80,19 @@ class TestProjeto(unittest.TestCase):
 
         # Result Verification
         self.assertEqual(ocorrencia, ocorrencia_ret)
-    
+
     '''
         Teste 32
+    '''
+    def test_encontrar_ocorrencia_inexistente(self):
+        # Exercise SUT
+        ocorrencia_ret = self.projeto.encontrarOcorrencia(1)
+
+        # Result Verification
+        self.assertIsNone(ocorrencia_ret)
+
+    '''
+        Teste 33
     '''
     def test_finalizar_ocorrencia(self):
         # Inline Setup
