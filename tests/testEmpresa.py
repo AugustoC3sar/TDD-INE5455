@@ -174,11 +174,11 @@ class TestEmpresa(unittest.TestCase):
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
         funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
-        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [])
+        novo_projeto = self.empresa.novoProjeto('Projeto1', 30.000, '2024/12/22', funcionario_gerente, [])
         # Exercise SUT
-        projeto = self.empresa.encontrarProjeto(novo_projeto_id)
+        projeto = self.empresa.encontrarProjeto(novo_projeto.id)
         # Result Verification
-        self.assertEqual(novo_projeto_id, projeto.id)
+        self.assertEqual(novo_projeto.id, projeto.id)
 
     '''
         Teste 14
@@ -199,14 +199,13 @@ class TestEmpresa(unittest.TestCase):
         # Inline Fixture Setup
         self.empresa.cadastrarFuncionario('Fulano', '123.456.789-00', 'Gerente', 1000.0)
         funcionario_gerente = self.empresa.encontrarFuncionario('123.456.789-00')
-        novo_projeto_id = self.empresa.novoProjeto('Projeto1', 30000, '2024/12/22', funcionario_gerente, [])
+        novo_projeto = self.empresa.novoProjeto('Projeto1', 30000, '2024/12/22', funcionario_gerente, [])
         self.empresa.cadastrarFuncionario('Ciclano', '009.876.543-21', 'Gerente', 1000.0)
         funcionario_registrado = self.empresa.encontrarFuncionario('009.876.543-21')
         # Exercise SUT
-        self.empresa.adicionarAoProjeto(novo_projeto_id, funcionario_registrado)
+        self.empresa.adicionarAoProjeto(novo_projeto.id, funcionario_registrado)
         # Result Verification
-        projeto = self.empresa.encontrarProjeto(novo_projeto_id)
-        self.assertEqual(len(projeto.equipe), 2)
+        self.assertEqual(len(novo_projeto.equipe), 2)
 
     '''
         Teste 17

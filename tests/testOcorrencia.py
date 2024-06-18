@@ -25,7 +25,7 @@ class TestOcorrencia(unittest.TestCase):
         self.assertEqual(ocorrencia.resumo, "Configuração do Firewall")
         self.assertEqual(ocorrencia.responsavel, self.responsavel)
         self.assertEqual(ocorrencia.tipo, "tarefa")
-        self.assertEqual(ocorrencia.prioridade, 2)
+        self.assertEqual(ocorrencia.prioridade.value, 2)
         self.assertEqual(ocorrencia.estado, 1)
 
     '''
@@ -50,7 +50,7 @@ class TestOcorrencia(unittest.TestCase):
         self.ocorrencia.modificarPrioridade(2)
 
         # Result Verification
-        self.assertEqual(self.ocorrencia.prioridade, 2)
+        self.assertEqual(self.ocorrencia.prioridade.value, 2)
 
     '''
         Teste 26
